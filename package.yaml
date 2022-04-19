@@ -1,0 +1,48 @@
+name:                podsync
+version:             0.1.0.0
+github:              "nokurn/podsync"
+license:             MIT
+author:              "Jeremiah Griffin"
+maintainer:          "jgriffin@mailbox.org"
+copyright:           "Copyright 2022 Jeremiah Griffin"
+
+extra-source-files:
+- CHANGELOG.md
+- README.md
+
+# Metadata used when publishing your package
+synopsis:            Podcast manager and download client
+category:            Network
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/nokurn/podsync#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  podsync:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - podsync
+
+tests:
+  podsync-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - podsync
